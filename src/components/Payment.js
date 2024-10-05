@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Payment.css';
 
 const Payment = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // Use navigate to programmatically redirect
-  const { location: userLocation } = location.state || {};
+  const navigate = useNavigate();
+  const { location: userLocation, price } = location.state || {}; // Get price from location state
 
   const [paymentMethod, setPaymentMethod] = useState('eft');
-  const [price, setPrice] = useState(100); // Example initial price
   const [bankName, setBankName] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [cardNumber, setCardNumber] = useState('');
@@ -23,16 +22,16 @@ const Payment = () => {
   const handleFinalConfirm = () => {
     // Prepare order summary
     const orderSummary = {
-      dateTime: new Date().toLocaleString(), // Current date and time
-      fuelType: paymentMethod === 'eft' ? 'Diesel' : 'Petrol', // Adjust based on selection
+      dateTime: new Date().toLocaleString(),
+      fuelType: paymentMethod === 'eft' ? 'Diesel' : 'Petrol',
       price: (price * 1.2).toFixed(2), // Assuming the price includes a 20% markup
-      cardLast4: paymentMethod === 'bankCard' ? cardNumber.slice(-4) : cardNumber, // Show full card number for EFT
-      location: userLocation, // Assuming userLocation is passed correctly
-      maskedCard: paymentMethod === 'bankCard' ? `************${cardNumber.slice(-4)}` : cardNumber, // Mask card number for Bank Card
+      cardLast4: paymentMethod === 'bankCard' ? cardNumber.slice(-4) : '',
+      location: userLocation,
+      maskedCard: paymentMethod === 'bankCard' ? `************${cardNumber.slice(-4)}` : '',
     };
 
     // Navigate to OrderTracking component
-    navigate('/order-tracking', { state: { orderSummary } }); // Use navigate to redirect
+    navigate('/order-tracking', { state: { orderSummary } });
 
     setShowConfirmation(false);
   };
@@ -57,27 +56,25 @@ const Payment = () => {
         </select>
       </div>
 
-      {/* Price Input */}
+      {/* Price Display */}
       <div className="form-group">
         <label htmlFor="price">Price</label>
         <input
           type="number"
           id="price"
           value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          placeholder="Enter price"
-          disabled
+          readOnly
         />
       </div>
 
       {/* Markup and Total Price */}
       <div className="form-group">
         <label>Markup (20%):</label>
-        <input type="text" value={`R${markup}`} disabled />
+        <input type="text" value={`R${markup}`} readOnly />
       </div>
       <div className="form-group">
         <label>Total Price:</label>
-        <input type="text" value={`R${totalPrice}`} disabled />
+        <input type="text" value={`R${totalPrice}`} readOnly />
       </div>
 
       {/* EFT Payment Inputs */}
@@ -159,14 +156,13 @@ const Payment = () => {
             {paymentMethod === 'eft' ? (
               <>
                 <p><strong>Payment Method:</strong> EFT</p>
-                <p><strong>Card Number:</strong> {cardNumber}</p>
                 <p><strong>Bank Name:</strong> {bankName}</p>
                 <p><strong>Account Number:</strong> {accountNumber}</p>
               </>
             ) : (
               <>
                 <p><strong>Payment Method:</strong> Bank Card</p>
-                <p><strong>Card Number:</strong> {`************${cardNumber.slice(-4)}`}</p> {/* Display masked card number */}
+                <p><strong>Card Number:</strong> {`************${cardNumber.slice(-4)}`}</p>
                 <p><strong>Expiry Date:</strong> {expiryDate}</p>
                 <p><strong>CVV:</strong> {cvv}</p>
               </>

@@ -1,29 +1,24 @@
-body, html {
+body {
   margin: 0;
-  padding: 0;
-  height: 100%;
   font-family: 'Arial', sans-serif;
-  overflow-x: hidden; /* Ensure no horizontal scrolling */
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* Ensure the container takes full height */
 }
 
 .main-content {
-  flex: 1;
+  flex: 1; /* Allow main content to expand */
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack children vertically */
+  position: relative; /* Position context for absolute children */
   overflow-y: auto; /* Enable vertical scrolling */
-  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
-}
-
-footer {
-  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
   .footer {
-    display: none; /* Hide footer on mobile */
+    display: none; /* Hide footer on small screens */
   }
 }

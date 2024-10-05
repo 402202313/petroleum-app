@@ -1,8 +1,18 @@
+import L from 'leaflet';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/leaflet.css';
 import React, { useState } from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../styles/Maps.css';
+
+let DefaultIcon = L.icon({
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 // Custom component to change map center and zoom
 const ChangeMapView = ({ center, zoom }) => {
