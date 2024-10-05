@@ -1,0 +1,105 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin: 0 0 20px;
+    color: #000;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.modal-content input {
+    width: 90%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-container input {
+    width: 90%;
+    padding-right: 45px; /* Adjust for more space for the eye icon */
+    align-items: center;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent; /* Make the button background transparent */
+    border: none; /* Remove any border */
+    cursor: pointer;
+    padding: 0; /* Remove padding to keep only the icon */
+    color: #007bff; /* Keep the eye icon color */
+}
+
+.toggle-password svg {
+    font-size: 1.2rem; /* Adjust the size of the icon */
+}
+
+
+.modal-content input::placeholder {
+    color: #aaa;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px; /* Add margin for spacing between input fields and buttons */
+}
+
+.modal-content button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #000; /* Black background */
+    color: #fff; /* White text */
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    flex: 1;
+    margin: 0 10px; /* More space between the buttons */
+    text-align: center;
+}
+
+.modal-content button:hover {
+    background: #333;
+    color: #fff;
+}
+
+.close-button {
+    background: #000; /* Keep the Close button black too */
+    color: #fff;
+}
+

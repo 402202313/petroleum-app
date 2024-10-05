@@ -1,0 +1,74 @@
+/* Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px; /* Added padding for more space */
+  background-color: #000; /* Black background */
+  color: #fff; /* White text color */
+}
+
+.header-left span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Common styling for header-right */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Header links styling */
+.header-links {
+  display: flex; /* Show on mobile by default */
+}
+
+/* Link styling */
+.header-links a,
+.desktop-links a {
+  color: #fff; /* White text for links */
+  text-decoration: none; /* Remove underline */
+  margin: 0 15px; /* Space between links */
+  font-size: 16px; /* Font size for links */
+  transition: color 0.3s; /* Smooth color change on hover */
+}
+
+.header-links a:hover,
+.desktop-links a:hover {
+  color: #e0e0e0; /* Change color on hover */
+}
+
+/* Desktop specific links */
+.desktop-links {
+  display: none; /* Hide on mobile by default */
+}
+
+/* Media query for desktop view */
+@media (min-width: 768px) {
+  /* Show desktop links and hide mobile links */
+  .desktop-links {
+      display: flex; /* Show desktop links */
+      margin-left: 20px; /* Space between links */
+  }
+
+  .header-links {
+      display: none; /* Hide mobile links on desktop */
+  }
+
+  /* Hide hamburger button on larger screens */
+  .header-hamburger {
+      display: none; /* Hide hamburger button */
+  }
+}
+
+.header-left a {
+  color: white;           /* Set text color to white */
+  text-decoration: none;  /* Remove the underline */
+  font-size: 1.5rem;      /* Adjust the font size if needed */
+  font-weight: bold;      /* Optional: make the text bold */
+}
+
+.header-left a:hover {
+  color: lightgray;       /* Optional: change color on hover */
+}

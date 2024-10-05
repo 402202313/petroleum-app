@@ -1,0 +1,67 @@
+/* src/styles/Maps.css */
+
+html, body {
+  height: 100%; /* Ensure the html and body have full height */
+  margin: 0;    /* Remove default margin */
+}
+
+.map-page {
+  flex: 1; /* Allow map-page to take remaining space */
+  padding: 20px;
+  background-color: rgb(255, 255, 255); /* White background */
+  color: rgb(0, 0, 0); /* Black text color */
+  display: flex; /* Use flex to manage inner layout */
+  flex-direction: column; /* Stack children vertically */
+}
+
+.location-input-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px; /* Add space below the input container */
+}
+
+.location-input {
+  flex: 1; /* Allow the input to take remaining space */
+  padding: 10px;
+  margin-right: 10px; /* Space between input and button */
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Light grey border */
+}
+
+.confirm-location-btn {
+  padding: 10px; /* Adjust padding as needed */
+  background-color: black; /* Black background for button */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.confirm-location-btn:hover {
+  background-color: grey; /* Change to grey on hover */
+}
+
+.predictions-container {
+  background: white; /* Background color for predictions */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute; /* Position it under the input */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.prediction {
+  padding: 10px;
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  color: black; /* Make prediction text black */
+}
+
+.prediction:hover {
+  background: lightgrey; /* Highlight on hover */
+}
+
+/* Leaflet Map CSS */
+.leaflet-container {
+  flex: 1; /* Allow the leaflet map to fill available space */
+  width: 100%; /* Make the leaflet map take full width */
+}

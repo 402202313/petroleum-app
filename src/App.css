@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes full height */
+}
+
+.main-content {
+  flex: 1; /* Allow main content to expand */
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack children vertically */
+  position: relative; /* Position context for absolute children */
+
+}
+
+@media (max-width: 768px) {
+  .header,
+  .footer {
+    display: none; /* Hide header and footer on small screens */
+  }
+}
