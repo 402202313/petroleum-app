@@ -11,19 +11,19 @@ import Payment from './components/Payment';
 
 const App = () => {
   return (
-    <Router basename="/petroleum-app"> {/* Set the base path */}
+    <Router basename="/petroleum-app">
       <div className="app-container">
-        <Header />  {/* Header is always visible */}
+        <Header />  
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<HomePage />} /> {/* Set HomePage as the default */}
+            <Route path="/" element={<HomePage />} /> 
             <Route path="/maps" element={<Maps />} />
             <Route path="/order" element={<OrderForm />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/order-tracking" element={<OrderTracking />} />
           </Routes>
         </main>
-        <Footer />  {/* Footer will be conditionally visible */}
+        <Footer />  
       </div>
     </Router>
   );

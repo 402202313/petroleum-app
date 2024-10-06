@@ -4,7 +4,7 @@ import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/leaflet.css';
 import React, { useState } from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../styles/Maps.css';
 
 let DefaultIcon = L.icon({
@@ -14,10 +14,10 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// Custom component to change map center and zoom
+
 const ChangeMapView = ({ center, zoom }) => {
     const map = useMap();
-    map.setView(center, zoom); // Set the map's view to the new center and zoom level
+    map.setView(center, zoom); 
     return null;
 };
 
@@ -28,7 +28,7 @@ const Maps = () => {
     const [markerPosition, setMarkerPosition] = useState([51.505, -0.09]);
     const [zoomLevel, setZoomLevel] = useState(13);
 
-    const navigate = useNavigate(); // Initialize navigate
+    const navigate = useNavigate(); 
 
     const debounce = (func, delay) => {
         let timeout;
@@ -41,20 +41,20 @@ const Maps = () => {
     };
 
     const fetchPredictions = async (value) => {
-        if (value.length >= 3) { // Only search when 3 or more characters are typed
+        if (value.length >= 3) {
             try {
                 const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${value}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setPredictions(data.slice(0, 3)); // Limit to 3 predictions
+                setPredictions(data.slice(0, 3));
             } catch (error) {
                 console.error('Failed to fetch:', error);
                 setPredictions([]);
             }
         } else {
-            setPredictions([]); // Clear predictions when less than 3 characters
+            setPredictions([]); 
         }
     };
 
@@ -73,11 +73,11 @@ const Maps = () => {
         setMarkerPosition([lat, lon]);
         setLocation(prediction.display_name);
         setPredictions([]);
-        setZoomLevel(18); // Zoom to street level
+        setZoomLevel(18); 
     };
 
     const handleConfirmLocation = () => {
-        navigate('/order', { state: { location } }); // Navigate to the order page with the location
+        navigate('/order', { state: { location } });
     };
 
     return (

@@ -1,44 +1,44 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  overflow-y: auto; /* Ensure vertical scroll is enabled */
-  height: 100%; /* Set height for body */
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  height: 100%; 
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the container takes full height */
-  overflow-y: auto; /* Allow scrolling for the entire app */
+  min-height: 100vh; 
+  overflow-y: auto; 
   touch-action: pan-y;
   position: relative;
 }
 
 .main-content {
-  flex: 1; /* Allow main content to expand */
-  display: flex; /* Enable flexbox */
-  flex-direction: column; /* Stack children vertically */
-  position: relative; /* Position context for absolute children */
-  overflow-y: auto; /* Enable vertical scrolling */
+  flex: 1; 
+  display: flex; 
+  flex-direction: column;
+  position: relative; 
+  overflow-y: auto; 
   touch-action: pan-y;
 
   .main-content {
-    display: flex; /* Enable flexbox on main content */
-    flex-direction: column; /* Stack children vertically */
+    display: flex; 
+    flex-direction: column; 
     
-    width: 100%; /* Optional: Set the width */
-    max-width: 800px; /* Optional: Set a maximum width */
-    padding: 20px; /* Optional: Add some padding */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
-    border-radius: 8px; /* Optional: Round corners */
-    background-color: white; /* Optional: Background color */
+    width: 100%; 
+    max-width: 800px;
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    background-color: white; 
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    display: none; /* Hide footer on small screens */
+    display: none;
   }
 }
  

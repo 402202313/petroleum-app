@@ -1,19 +1,18 @@
-// Modal.js
 import React, { useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import icons from react-icons
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import '../styles/Modal.css';
 
 const Modal = ({ isOpen, onClose, isLogin, onAuth }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
+  const [showPassword, setShowPassword] = useState(false); 
 
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAuth(email, password); // Call the authentication handler passed from Header
-    onClose(); // Close the modal after submission
+    onAuth(email, password); 
+    onClose();
   };
 
   return (
@@ -29,16 +28,16 @@ const Modal = ({ isOpen, onClose, isLogin, onAuth }) => {
               onChange={(e) => setEmail(e.target.value)} 
               required 
             />
-            <div className="password-container"> {/* New container for password input and toggle */}
+            <div className="password-container"> 
               <input 
-                type={showPassword ? 'text' : 'password'} // Toggle password visibility
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Password" 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 required 
               />
               <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? <FaEyeSlash color='grey'/> : <FaEye />} {/* Toggle icon */}
+                {showPassword ? <FaEyeSlash color='grey'/> : <FaEye />}
               </span>
             </div>
             <div className="button-container">

@@ -5,7 +5,15 @@ import '../styles/Payment.css';
 const Payment = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { location: userLocation, price } = location.state || {}; // Get price from location state
+  const { 
+    location: userLocation, 
+    price, 
+    fuelType, 
+    fuelSubtype, 
+    deliveryDate, 
+    deliveryTime, 
+    customTime 
+  } = location.state || {}; 
 
   const [paymentMethod, setPaymentMethod] = useState('eft');
   const [bankName, setBankName] = useState('');
@@ -20,30 +28,28 @@ const Payment = () => {
   };
 
   const handleFinalConfirm = () => {
-    // Prepare order summary
     const orderSummary = {
       dateTime: new Date().toLocaleString(),
-      fuelType: paymentMethod === 'eft' ? 'Diesel' : 'Petrol',
-      price: (price * 1.2).toFixed(2), // Assuming the price includes a 20% markup
-      cardLast4: paymentMethod === 'bankCard' ? cardNumber.slice(-4) : '',
+      fuelType: fuelType,
+      fuelSubtype: fuelSubtype,
+      price: price,
       location: userLocation,
-      maskedCard: paymentMethod === 'bankCard' ? `************${cardNumber.slice(-4)}` : '',
+      deliveryDate, 
+      deliveryTime: deliveryTime === 'immediately' ? 'Immediately' : customTime, 
     };
 
-    // Navigate to OrderTracking component
     navigate('/order-tracking', { state: { orderSummary } });
-
     setShowConfirmation(false);
   };
 
-  const markup = (price * 0.2).toFixed(2);
-  const totalPrice = (parseFloat(price) + parseFloat(markup)).toFixed(2);
+  const markup = (price * 0.15).toFixed(2); 
+  const deliveryFee = 100; 
+  const totalPrice = (parseFloat(price) + parseFloat(markup) + deliveryFee).toFixed(2); 
 
   return (
     <div className="payment-form">
       <h2>Payment Information</h2>
 
-      {/* Payment Method Selection */}
       <div className="form-group">
         <label htmlFor="paymentMethod">Payment Method</label>
         <select
@@ -56,54 +62,6 @@ const Payment = () => {
         </select>
       </div>
 
-      {/* Price Display */}
-      <div className="form-group">
-        <label htmlFor="price">Price</label>
-        <input
-          type="number"
-          id="price"
-          value={price}
-          readOnly
-        />
-      </div>
-
-      {/* Markup and Total Price */}
-      <div className="form-group">
-        <label>Markup (20%):</label>
-        <input type="text" value={`R${markup}`} readOnly />
-      </div>
-      <div className="form-group">
-        <label>Total Price:</label>
-        <input type="text" value={`R${totalPrice}`} readOnly />
-      </div>
-
-      {/* EFT Payment Inputs */}
-      {paymentMethod === 'eft' && (
-        <>
-          <div className="form-group">
-            <label htmlFor="bankName">Bank Name</label>
-            <input
-              type="text"
-              id="bankName"
-              value={bankName}
-              onChange={(e) => setBankName(e.target.value)}
-              placeholder="Enter bank name"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="accountNumber">Account Number</label>
-            <input
-              type="text"
-              id="accountNumber"
-              value={accountNumber}
-              onChange={(e) => setAccountNumber(e.target.value)}
-              placeholder="Enter account number"
-            />
-          </div>
-        </>
-      )}
-
-      {/* Bank Card Payment Inputs */}
       {paymentMethod === 'bankCard' && (
         <>
           <div className="form-group">
@@ -113,7 +71,7 @@ const Payment = () => {
               id="cardNumber"
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
-              placeholder="Enter card number"
+              placeholder="Enter your card number"
             />
           </div>
           <div className="form-group">
@@ -133,47 +91,78 @@ const Payment = () => {
               id="cvv"
               value={cvv}
               onChange={(e) => setCvv(e.target.value)}
-              placeholder="Enter CVV"
+              placeholder="Enter your CVV"
             />
           </div>
         </>
       )}
 
-      {/* Confirm Button */}
+      {paymentMethod === 'eft' && (
+        <>
+          <div className="form-group">
+            <label htmlFor="bankName">Bank Name</label>
+            <input
+              type="text"
+              id="bankName"
+              value={bankName}
+              onChange={(e) => setBankName(e.target.value)}
+              placeholder="Enter your bank name"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="accountNumber">Account Number</label>
+            <input
+              type="text"
+              id="accountNumber"
+              value={accountNumber}
+              onChange={(e) => setAccountNumber(e.target.value)}
+              placeholder="Enter your account number"
+            />
+          </div>
+        </>
+      )}
+
+      <div className="form-group">
+        <label htmlFor="price">Price</label>
+        <input
+          type="number"
+          id="price"
+          value={price}
+          readOnly
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Markup (15%):</label>
+        <input type="text" value={`R${markup}`} readOnly />
+      </div>
+      <div className="form-group">
+        <label>Delivery Fee:</label>
+        <input type="text" value={`R${deliveryFee}`} readOnly />
+      </div>
+      <div className="form-group">
+        <label>Total Price:</label>
+        <input type="text" value={`R${totalPrice}`} readOnly />
+      </div>
+
       <button onClick={handleConfirm} className="confirm-btn">
         Confirm Payment
       </button>
 
-      {/* Confirmation Modal */}
       {showConfirmation && (
         <div className="modal-overlay" onClick={() => setShowConfirmation(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h3>Confirm Your Payment</h3>
             <p><strong>Date & Time:</strong> {new Date().toLocaleString()}</p>
-            <p><strong>Fuel Type:</strong> {paymentMethod === 'eft' ? 'Diesel' : 'Petrol'}</p>
-            <p><strong>Markup:</strong> R{markup}</p>
+            <p><strong>Fuel Type:</strong> {fuelType}</p>
+            <p><strong>Fuel Subtype:</strong> {fuelSubtype}</p>
+            <p><strong>Delivery Date:</strong> {deliveryDate}</p>
+            <p><strong>Delivery Time:</strong> {deliveryTime === 'immediately' ? 'Immediately' : customTime}</p>
             <p><strong>Total Price:</strong> R{totalPrice}</p>
-            {paymentMethod === 'eft' ? (
-              <>
-                <p><strong>Payment Method:</strong> EFT</p>
-                <p><strong>Bank Name:</strong> {bankName}</p>
-                <p><strong>Account Number:</strong> {accountNumber}</p>
-              </>
-            ) : (
-              <>
-                <p><strong>Payment Method:</strong> Bank Card</p>
-                <p><strong>Card Number:</strong> {`************${cardNumber.slice(-4)}`}</p>
-                <p><strong>Expiry Date:</strong> {expiryDate}</p>
-                <p><strong>CVV:</strong> {cvv}</p>
-              </>
-            )}
-            <div className='button-container'>
-              <button onClick={handleFinalConfirm} className="confirm-btn">
-                Pay
-              </button>
-              <button onClick={() => setShowConfirmation(false)} className="cancel-btn">
-                Cancel
-              </button>
+
+            <div className="modal-button-container">
+              <button onClick={handleFinalConfirm}>Finalize Order</button>
+              <button onClick={() => setShowConfirmation(false)}>Close</button>
             </div>
           </div>
         </div>

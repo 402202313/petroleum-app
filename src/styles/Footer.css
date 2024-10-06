@@ -1,32 +1,31 @@
-/* Footer.css */
 .footer {
-  background-color: black; /* Black background for the footer */
-  color: white; /* White text color */
-  padding: 20px 0; /* Padding for the footer */
-  text-align: center; /* Center text */
-  position: relative; /* Relative positioning for footer */
-  bottom: 0; /* Stick to the bottom */
-  width: 100%; /* Full width */
+  background-color: black; 
+  color: white; 
+  padding: 20px 0; 
+  text-align: center;
+  position: relative; 
+  bottom: 0; 
+  width: 100%; 
 }
 
 .footer-content {
-  display: flex; /* Flexbox for alignment */
-  justify-content: space-between; /* Space between items */
-  align-items: center; /* Center items vertically */
-  padding: 0 20px; /* Horizontal padding */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 20px; 
 }
 
 .social-icons {
-  display: flex; /* Flexbox for icons */
-  gap: 15px; /* Space between icons */
+  display: flex; 
+  gap: 15px; 
 }
 
 .social-icon {
-  color: white; /* White color for icons */
-  font-size: 24px; /* Size of the icons */
-  transition: color 0.3s; /* Smooth transition for hover */
+  color: white; 
+  font-size: 24px;
+  transition: color 0.3s; 
 }
 
 .social-icon:hover {
-  color: grey; /* Change color on hover */
+  color: grey; 
 }

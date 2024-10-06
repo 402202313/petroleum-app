@@ -1,14 +1,13 @@
-// src/components/HomePage.js
 import React from 'react';
-import { FaGasPump } from 'react-icons/fa'; // Importing an icon
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import '../styles/HomePage.css'; // Import your CSS file for styling
+import { FaGasPump } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import '../styles/HomePage.css';
 
 const HomePage = () => {
-  const navigate = useNavigate(); // Use useNavigate for navigation
+  const navigate = useNavigate();
 
   const handleOrderClick = () => {
-    navigate('/maps'); // Navigate to the maps page
+    navigate('/maps');
   };
 
   return (
@@ -17,13 +16,12 @@ const HomePage = () => {
         <h1>
           <FaGasPump style={{ marginRight: '10px' }} /> Fueling Your Journey
         </h1>
-        <p className="slogan">Your reliable source for quality petroleum products.</p>
+        <p className="slogan">Your trusted partner for on-demand petroleum delivery.</p>
         <button className="order-button" onClick={handleOrderClick}>
           Order Petrol
         </button>
       </div>
       <div className="right-section">
-        {/* You can add your image or other content here */}
       </div>
     </div>
   );

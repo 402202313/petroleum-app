@@ -32,13 +32,13 @@
 }
 
 .modal-content input {
-    width: 100%; /* Ensure full width */
-    margin-bottom: 15px; /* Space between inputs */
-    padding: 12px; /* Uniform padding */
-    border: 1px solid #ccc; /* Border style */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-    box-sizing: border-box; /* Include padding and border in the width */
+    width: 100%; 
+    margin-bottom: 15px;
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px;
+    box-sizing: border-box; 
 }
 
 .password-container {
@@ -48,9 +48,9 @@
 }
 
 .password-container input {
-    flex: 1; /* Allow input to take the full space */
-    padding-right: 45px; /* Space for the eye icon */
-    margin-bottom: 0; /* No margin for the last input */
+    flex: 1; 
+    padding-right: 45px; 
+    margin-bottom: 0; 
 }
 
 .toggle-password {
@@ -58,47 +58,47 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent; /* Transparent background */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor */
-    padding: 0; /* Remove padding */
-    color: #000000; /* Icon color */
+    background: transparent;
+    border: none; 
+    cursor: pointer;
+    padding: 0;
+    color: #000000; 
 }
 
 .toggle-password svg {
-    font-size: 1.2rem; /* Icon size */
+    font-size: 1.2rem; 
 }
 
 .modal-content input::placeholder {
-    color: #aaa; /* Placeholder color */
+    color: #aaa;
 }
 
 .button-container {
     display: flex;
-    justify-content: space-between; /* Space between buttons */
-    width: 100%; /* Full width */
-    margin-top: 20px; /* Space above buttons */
+    justify-content: space-between; 
+    width: 100%; 
+    margin-top: 20px; 
 }
 
 .modal-content button {
-    padding: 12px; /* Button padding */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    background: #000; /* Black background */
-    color: #fff; /* White text */
-    cursor: pointer; /* Pointer cursor */
-    transition: background 0.3s, color 0.3s; /* Hover effect */
-    flex: 1; /* Equal width buttons */
-    margin: 0 10px; /* Space between buttons */
-    text-align: center; /* Center text */
+    padding: 12px; 
+    border: none; 
+    border-radius: 5px; 
+    background: #000; 
+    color: #fff; 
+    cursor: pointer; 
+    transition: background 0.3s, color 0.3s;
+    flex: 1; 
+    margin: 0 10px;
+    text-align: center;
 }
 
 .modal-content button:hover {
-    background: #333; /* Darker on hover */
-    color: #fff; /* White text */
+    background: #333;
+    color: #fff;
 }
 
 .close-button {
-    background: #000; /* Close button color */
-    color: #fff; /* White text */
+    background: #000; 
+    color: #fff;
 }
