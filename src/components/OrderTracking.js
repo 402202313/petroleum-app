@@ -14,14 +14,15 @@ const OrderTracking = () => {
           <p><strong>Date & Time:</strong> {orderSummary.dateTime}</p>
           <p><strong>Fuel Type:</strong> {orderSummary.fuelType}</p>
           <p><strong>Fuel Subtype:</strong> {orderSummary.fuelSubtype}</p>
-          <p><strong>Price:</strong> R{orderSummary.price}</p>
+          <p><strong>Total Price:</strong> R{orderSummary.price}</p>
           <p><strong>Location:</strong> {orderSummary.location}</p>
-          <p><strong>Delivery Date:</strong> {orderSummary.deliveryDate}</p>
+          <p><strong>Delivery Date:</strong> {orderSummary.deliveryDate}</p> 
           <p><strong>Delivery Time:</strong> {orderSummary.deliveryTime}</p> 
         </div>
       )}
     </div>
   );
 };
+
 
 export default OrderTracking;

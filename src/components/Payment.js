@@ -32,7 +32,7 @@ const Payment = () => {
       dateTime: new Date().toLocaleString(),
       fuelType: fuelType,
       fuelSubtype: fuelSubtype,
-      price: price,
+      price: totalPrice, 
       location: userLocation,
       deliveryDate, 
       deliveryTime: deliveryTime === 'immediately' ? 'Immediately' : customTime, 
@@ -41,6 +41,7 @@ const Payment = () => {
     navigate('/order-tracking', { state: { orderSummary } });
     setShowConfirmation(false);
   };
+
 
   const markup = (price * 0.15).toFixed(2); 
   const deliveryFee = 100; 
