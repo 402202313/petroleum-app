@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/petroleum-app/static/css/main.b5481e25.css",
-    "main.js": "/petroleum-app/static/js/main.0dd8d3d0.js",
+    "main.css": "/petroleum-app/static/css/main.81067c10.css",
+    "main.js": "/petroleum-app/static/js/main.b31c25b0.js",
     "static/js/845.297451bd.chunk.js": "/petroleum-app/static/js/845.297451bd.chunk.js",
     "index.html": "/petroleum-app/index.html",
-    "main.b5481e25.css.map": "/petroleum-app/static/css/main.b5481e25.css.map",
-    "main.0dd8d3d0.js.map": "/petroleum-app/static/js/main.0dd8d3d0.js.map",
+    "main.81067c10.css.map": "/petroleum-app/static/css/main.81067c10.css.map",
+    "main.b31c25b0.js.map": "/petroleum-app/static/js/main.b31c25b0.js.map",
     "845.297451bd.chunk.js.map": "/petroleum-app/static/js/845.297451bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5481e25.css",
-    "static/js/main.0dd8d3d0.js"
+    "static/css/main.81067c10.css",
+    "static/js/main.b31c25b0.js"
   ]
 }
