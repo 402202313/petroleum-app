@@ -169,7 +169,7 @@ const Payment = () => {
             )}
             <div className='button-container'>
               <button onClick={handleFinalConfirm} className="confirm-btn">
-                Confirm
+                Pay
               </button>
               <button onClick={() => setShowConfirmation(false)} className="cancel-btn">
                 Cancel

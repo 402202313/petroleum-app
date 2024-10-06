@@ -49,7 +49,7 @@ const Header = () => {
           <a href="#" onClick={() => { setIsLogin(false); setIsModalOpen(true); }}>Sign Up</a>
           <a href="#">Business</a>
           <a href="#">Help</a>
-          <a href="#">Bombaclaat</a>
+          <a href="#">Skibidi</a>
         </div>
       </div>
 

@@ -32,12 +32,13 @@
 }
 
 .modal-content input {
-    width: 90%;
-    margin-bottom: 15px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    width: 100%; /* Ensure full width */
+    margin-bottom: 15px; /* Space between inputs */
+    padding: 12px; /* Uniform padding */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    box-sizing: border-box; /* Include padding and border in the width */
 }
 
 .password-container {
@@ -47,9 +48,9 @@
 }
 
 .password-container input {
-    width: 90%;
-    padding-right: 45px; /* Adjust for more space for the eye icon */
-    align-items: center;
+    flex: 1; /* Allow input to take the full space */
+    padding-right: 45px; /* Space for the eye icon */
+    margin-bottom: 0; /* No margin for the last input */
 }
 
 .toggle-password {
@@ -57,49 +58,47 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent; /* Make the button background transparent */
-    border: none; /* Remove any border */
-    cursor: pointer;
-    padding: 0; /* Remove padding to keep only the icon */
-    color: #007bff; /* Keep the eye icon color */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    padding: 0; /* Remove padding */
+    color: #000000; /* Icon color */
 }
 
 .toggle-password svg {
-    font-size: 1.2rem; /* Adjust the size of the icon */
+    font-size: 1.2rem; /* Icon size */
 }
 
-
 .modal-content input::placeholder {
-    color: #aaa;
+    color: #aaa; /* Placeholder color */
 }
 
 .button-container {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px; /* Add margin for spacing between input fields and buttons */
+    justify-content: space-between; /* Space between buttons */
+    width: 100%; /* Full width */
+    margin-top: 20px; /* Space above buttons */
 }
 
 .modal-content button {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
+    padding: 12px; /* Button padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
     background: #000; /* Black background */
     color: #fff; /* White text */
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    flex: 1;
-    margin: 0 10px; /* More space between the buttons */
-    text-align: center;
+    cursor: pointer; /* Pointer cursor */
+    transition: background 0.3s, color 0.3s; /* Hover effect */
+    flex: 1; /* Equal width buttons */
+    margin: 0 10px; /* Space between buttons */
+    text-align: center; /* Center text */
 }
 
 .modal-content button:hover {
-    background: #333;
-    color: #fff;
+    background: #333; /* Darker on hover */
+    color: #fff; /* White text */
 }
 
 .close-button {
-    background: #000; /* Keep the Close button black too */
-    color: #fff;
+    background: #000; /* Close button color */
+    color: #fff; /* White text */
 }
-

@@ -11,12 +11,12 @@ import Payment from './components/Payment';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/petroleum-app"> {/* Set the base path */}
       <div className="app-container">
         <Header />  {/* Header is always visible */}
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} /> {/* Set HomePage as the default */}
             <Route path="/maps" element={<Maps />} />
             <Route path="/order" element={<OrderForm />} />
             <Route path="/payment" element={<Payment />} />

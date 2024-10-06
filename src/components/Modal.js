@@ -40,7 +40,6 @@ const Modal = ({ isOpen, onClose, isLogin, onAuth }) => {
               <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <FaEyeSlash color='grey'/> : <FaEye />} {/* Toggle icon */}
               </span>
-
             </div>
             <div className="button-container">
               <button type="button" className="close-button" onClick={onClose}>Close</button>

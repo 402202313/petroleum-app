@@ -2,45 +2,38 @@ body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll */
-  height: 100%;
+  overflow-y: auto; /* Ensure vertical scroll is enabled */
+  height: 100%; /* Set height for body */
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* Ensure the container takes full height */
+  overflow-y: auto; /* Allow scrolling for the entire app */
+  touch-action: pan-y;
   position: relative;
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: #000; /* Adjust color as needed */
-  color: #fff;
-  padding: 10px;
-}
-
 .main-content {
-  flex: 1;
-  padding-top: 60px; /* Make space for fixed header */
-  padding-bottom: 60px; /* Make space for footer */
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Ensure main content is scrollable */
+  flex: 1; /* Allow main content to expand */
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack children vertically */
+  position: relative; /* Position context for absolute children */
+  overflow-y: auto; /* Enable vertical scrolling */
   touch-action: pan-y;
-}
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #000; /* Adjust color as needed */
-  color: #fff;
-  padding: 10px;
+  .main-content {
+    display: flex; /* Enable flexbox on main content */
+    flex-direction: column; /* Stack children vertically */
+    
+    width: 100%; /* Optional: Set the width */
+    max-width: 800px; /* Optional: Set a maximum width */
+    padding: 20px; /* Optional: Add some padding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+    border-radius: 8px; /* Optional: Round corners */
+    background-color: white; /* Optional: Background color */
+  }
 }
 
 @media (max-width: 768px) {
@@ -48,9 +41,4 @@ body {
     display: none; /* Hide footer on small screens */
   }
 }
-
-@media (min-width: 769px) {
-  .footer {
-    display: block; /* Show footer on larger screens */
-  }
-}
+ 
