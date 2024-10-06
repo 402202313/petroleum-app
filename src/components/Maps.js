@@ -41,20 +41,20 @@ const Maps = () => {
     };
 
     const fetchPredictions = async (value) => {
-        if (value) {
+        if (value.length >= 3) { // Only search when 3 or more characters are typed
             try {
                 const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${value}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setPredictions(data);
+                setPredictions(data.slice(0, 3)); // Limit to 3 predictions
             } catch (error) {
                 console.error('Failed to fetch:', error);
                 setPredictions([]);
             }
         } else {
-            setPredictions([]);
+            setPredictions([]); // Clear predictions when less than 3 characters
         }
     };
 

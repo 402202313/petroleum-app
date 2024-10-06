@@ -59,6 +59,7 @@
   /* Hide hamburger button on larger screens */
   .header-hamburger {
       display: none; /* Hide hamburger button */
+      
   }
 }
 
@@ -71,4 +72,15 @@
 
 .header-left a:hover {
   color: lightgray;       /* Optional: change color on hover */
+}
+
+.hamburger-button {
+  background: none;       /* Remove background */
+  border: none;          /* Remove border */
+  text-align: inherit;   /* Inherit text alignment */
+  text-decoration: none;  /* Remove underline */
+  cursor: pointer;       /* Change cursor to pointer */
+  outline: none; 
+  color: white;
+  background-color: black;
 }

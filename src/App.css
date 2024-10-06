@@ -1,24 +1,56 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  height: 100%;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the container takes full height */
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #000; /* Adjust color as needed */
+  color: #fff;
+  padding: 10px;
 }
 
 .main-content {
-  flex: 1; /* Allow main content to expand */
-  display: flex; /* Enable flexbox */
-  flex-direction: column; /* Stack children vertically */
-  position: relative; /* Position context for absolute children */
-  overflow-y: auto; /* Enable vertical scrolling */
+  flex: 1;
+  padding-top: 60px; /* Make space for fixed header */
+  padding-bottom: 60px; /* Make space for footer */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Ensure main content is scrollable */
+  touch-action: pan-y;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000; /* Adjust color as needed */
+  color: #fff;
+  padding: 10px;
 }
 
 @media (max-width: 768px) {
   .footer {
     display: none; /* Hide footer on small screens */
+  }
+}
+
+@media (min-width: 769px) {
+  .footer {
+    display: block; /* Show footer on larger screens */
   }
 }
